@@ -1,0 +1,64 @@
+    function addCompetition(e) {
+
+        if (!CompetitionName && !CompetitionCode && !BeforeOrAfterCompetitionN && !CompetitionDate) {
+            showAlertWithMessage("يرجي ملئ الجدول ببيانات لاضافتها");
+            setAlertColor("danger");
+            e.preventDefault(); // Prevent form submission
+            return;
+        }
+
+   
+        else if (BeforeOrAfterCompetitionN === "After") {
+            if
+                (searchCompetitionResult[0] !== CompetitionCode || searchCompetitionResult[3] !== CompetitionName
+                || searchCompetitionResult[6] !== rank ||
+                searchCompetitionResult[4] != formatDate(CompetitionDate) || searchCompetitionResult[5] !== BeforeOrAfterCompetitionN) {
+                showAlertWithMessage("يجب ان تكون بيانات الانبوت مثل بيانات الجدول");
+                setAlertColor("danger");
+                e.preventDefault(); // Prevent form submission
+                return;
+            }
+        }
+
+        else if (BeforeOrAfterCompetitionN === "Before") {
+            if
+                (searchCompetitionResult[0] !== CompetitionCode || searchCompetitionResult[3] !== CompetitionName
+                ||
+                searchCompetitionResult[4] != formatDate(CompetitionDate) || searchCompetitionResult[5] !== BeforeOrAfterCompetitionN) {
+                showAlertWithMessage("يجب ان تكون بيانات الانبوت مثل بيانات الجدول");
+                setAlertColor("danger");
+                e.preventDefault(); // Prevent form submission
+                return;
+            }
+        }
+   
+
+
+        // Check if any of the required fields is empty
+        else {
+            console.log(searchCompetitionResult)
+            addCompetition_indatabase();
+            showAlertWithMessage("تمت اضافه البيانات بنجاح")
+            setAlertColor("success");
+
+            SetCompetitionCode("");
+            SetCompetitionName("");
+            SetBeforeOrAfterCompetitionN("");
+            SetCompetitionDate("");
+            SetCompetitionClass("");
+            setCompetitionSearchResult("");
+            Setrank("");
+            setCheckbox1(false);
+            setCheckbox2(false);
+
+
+            console.log(mydata);
+        }
+
+        if (checkbox2 === false && ValditeState === true) {
+            showAlertWithMessage("يرجى اختيار الخيار لاضافه المسابقة");
+            setAlertColor("danger");
+            e.preventDefault(); // Prevent form submission
+            return;
+        }
+    }
