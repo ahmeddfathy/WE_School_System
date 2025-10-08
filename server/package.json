@@ -17,7 +17,7 @@
     "fs": "^0.0.1-security",
     "mysql": "^2.18.1",
     "mysql2": "^3.6.5",
-    "nodemailer": "^6.9.8",
+    "nodemailer": "^7.0.7",
     "nodemon": "^3.0.1",
     "xlsx": "^0.18.5"
   }
